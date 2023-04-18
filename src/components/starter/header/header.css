@@ -1,0 +1,39 @@
+nav img {
+  height: 20px;
+  padding: 10px;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100px;
+  margin: 0 20px;
+}
+
+nav ul {
+  display: flex;
+  font-size: 10px;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+nav li:not(:last-child) {
+  margin-right: 10px;
+}
+nav ul li {
+  padding: 5px;
+  border-radius: 6px;
+  color: blue;
+}
+nav ul li:hover {
+  background-color: white;
+  /* color: var(--theme-color-1); */
+}
+
+a {
+  color: powderblue;
+}
+
+.linkText {
+  color: pink;
+}
