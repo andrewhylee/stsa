@@ -11,6 +11,13 @@ export default defineConfig(() => {
         'Cache-Control': 'public, max-age=600',
       },
     },
+    build: {
+      rollupOptions: {
+        external(source, importer, isResolved): boolean | void {
+          if (['fs/promises', 'path'].indexOf(source) != -1) return true
+        },
+      }
+    }
   };
 });
  

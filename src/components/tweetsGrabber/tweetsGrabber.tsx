@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { server$ } from "@builder.io/qwik-city";
 import { readFile } from "fs/promises";
 import { acceptedStocks } from "./acceptedStocks";
@@ -31,8 +32,5 @@ export const tweetsGrabber = server$(async (stockTicker: string) => {
     );
     isValidStockTweet && tweetsOnly.push(tweets[key].full_text);
   }
-
-  //   console.log("tweetsOnly[0]");
-  //   console.log(tweetsOnly.length);
   return tweetsOnly;
 });
