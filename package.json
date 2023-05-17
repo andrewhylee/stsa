@@ -38,6 +38,8 @@
     "vite-tsconfig-paths": "3.5.0"
   },
   "dependencies": {
-    "sass": "^1.62.0"
+    "animate.css": "^4.1.1",
+    "sass": "^1.62.0",
+    "vader-sentiment": "^1.1.3"
   }
 }

@@ -1,24 +1,20 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal } from "@builder.io/qwik";
+import { server$ } from "@builder.io/qwik-city";
+
+const testServer = server$(async (arg) => {
+  return arg;
+});
 
 export default component$(() => {
+  let stocknames = useSignal("");
   return (
     <>
-      <div>
+      <div class="container">
         <h5>
           For any inquiries, please contact me at
           haeyang.lee77@myhunter.cuny.edu
         </h5>
-        <div id="hello"></div>
-        <form action="/api/submit">
-          <label for="stocks">
-            Please place a comma separated list of Stocks you wish to find the
-            sentiment of:
-          </label>
-          <br></br>
-          <input type="textbox" name="stocks"></input>
-          <br></br>
-          <button type="submit">Click to Submit</button>
-        </form>
+
         {/* prettier-ignore */}
         {/* <py-config>
             packages = ["matplotlib", "pandas", "snscrape", "vaderSentiment"]
