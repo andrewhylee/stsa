@@ -1,7 +1,13 @@
 // @ts-nocheck
 import { server$ } from "@builder.io/qwik-city";
-import { readFile } from "fs/promises";
+// import { readFile } from "fs/promises";
 import { acceptedStocks } from "./acceptedStocks";
+//@ts-ignore
+import { appl } from "./aapl";
+import { msft } from "./msft";
+import { nvda } from "./nvda";
+import { meta } from "./meta";
+import { amzn } from "./amzn";
 
 interface tweetSymbol {
   text: string;
@@ -13,13 +19,38 @@ export const tweetsGrabber = server$(async (stockTicker: string) => {
   // Check if stock is within the list of accepted stocks
   if (!acceptedStocks[stockTicker]) return [];
 
-  // Create File path
-  const filePath: string =
-    process.cwd() + "/public/json/twitterResponse/" + stockTicker + ".json";
+  switch (stockTicker) {
+    case "aapl":
+      const parsedData = aapl;
+      break;
+    case "msft":
+      const parsedData = msft;
+      break;
+    case "nvda":
+      const parsedData = nvda;
+      break;
+    case "meta":
+      const parsedData = meta;
+      break;
+    case "amzn":
+      //@ts-ignore
+      const parsedData = amzn;
+      break;
+
+    default:
+      break;
+  }
+
+  //   // Create File path
+  //   const filePath: string =
+  //     process.cwd() + "/public/json/twitterResponse/" + stockTicker + ".json";
+
+  // Workaround for: fs/promises not working on qwik-city vercel edge functions
 
   // Read Tweets data into JS
-  const rawData = await readFile(filePath, { encoding: "utf8" });
-  const parsedData = JSON.parse(rawData);
+  //   const rawData = await readFile(filePath, { encoding: "utf8" });
+  //   const parsedData = JSON.parse(rawData);
+
   const tweets = parsedData.globalObjects.tweets;
   const keys = Object.keys(tweets);
 
