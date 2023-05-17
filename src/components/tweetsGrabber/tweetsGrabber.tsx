@@ -38,12 +38,19 @@ export const tweetsGrabber = server$(async (stockTicker: string) => {
   //     default:
   //       break;
   //   }
+  let parsedData;
 
-  let parsedData = stockTicker === "aapl" && aapl;
-  let parsedData = stockTicker === "msft" && msft;
-  let parsedData = stockTicker === "nvda" && nvda;
-  let parsedData = stockTicker === "meta" && meta;
-  let parsedData = stockTicker === "amzn" && amzn;
+  if (stockTicker === "aapl") {
+    parsedData = aapl;
+  } else if (stockTicker === "msft") {
+    parsedData = msft;
+  } else if (stockTicker === "nvda") {
+    parsedData = nvda;
+  } else if (stockTicker === "meta") {
+    parsedData = meta;
+  } else if (stockTicker === "amzn") {
+    parsedData = amzn;
+  }
 
   //   // Create File path
   //   const filePath: string =
