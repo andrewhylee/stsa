@@ -6,7 +6,7 @@ import {
   useVisibleTask$,
   $,
 } from "@builder.io/qwik";
-import { routeAction$, Form } from "@builder.io/qwik-city";
+// import { routeAction$, Form } from "@builder.io/qwik-city";
 import Box from "~/components/basicComponents/box/box";
 // import TextInput from "~/components/textInput/textInput";
 // import styles from "./home.module.scss";
@@ -94,7 +94,7 @@ export default component$(() => {
   useVisibleTask$(({ track }) => {
     track(() => loaderClasses.value);
     if (loaderClasses.value === "animationWindow") {
-      let animData = {
+      const animData = {
         wrapper: document.querySelector(".animationWindow"),
         animType: "svg",
         loop: true,
@@ -102,7 +102,7 @@ export default component$(() => {
         autoplay: true,
         path: "/json/lego-loader.json",
       };
-      let anim = bodymovin.loadAnimation(animData);
+      const anim = bodymovin.loadAnimation(animData);
       anim.setSpeed(3.4);
     }
   });
