@@ -2,8 +2,7 @@
 import { server$ } from "@builder.io/qwik-city";
 // import { readFile } from "fs/promises";
 import { acceptedStocks } from "./acceptedStocks";
-//@ts-ignore
-import { appl } from "./aapl";
+import { aapl } from "./aapl";
 import { msft } from "./msft";
 import { nvda } from "./nvda";
 import { meta } from "./meta";
@@ -19,27 +18,32 @@ export const tweetsGrabber = server$(async (stockTicker: string) => {
   // Check if stock is within the list of accepted stocks
   if (!acceptedStocks[stockTicker]) return [];
 
-  switch (stockTicker) {
-    case "aapl":
-      const parsedData = aapl;
-      break;
-    case "msft":
-      const parsedData = msft;
-      break;
-    case "nvda":
-      const parsedData = nvda;
-      break;
-    case "meta":
-      const parsedData = meta;
-      break;
-    case "amzn":
-      //@ts-ignore
-      const parsedData = amzn;
-      break;
+  //   switch (stockTicker) {
+  //     case "aapl":
+  //       const parsedData = aapl;
+  //       break;
+  //     case "msft":
+  //       const parsedData = msft;
+  //       break;
+  //     case "nvda":
+  //       const parsedData = nvda;
+  //       break;
+  //     case "meta":
+  //       const parsedData = meta;
+  //       break;
+  //     case "amzn":
+  //       const parsedData = amzn;
+  //       break;
 
-    default:
-      break;
-  }
+  //     default:
+  //       break;
+  //   }
+
+  let parsedData = stockTicker === "aapl" && aapl;
+  let parsedData = stockTicker === "msft" && msft;
+  let parsedData = stockTicker === "nvda" && nvda;
+  let parsedData = stockTicker === "meta" && meta;
+  let parsedData = stockTicker === "amzn" && amzn;
 
   //   // Create File path
   //   const filePath: string =

@@ -1,4 +1,4 @@
-export const appl = {
+export const aapl = {
   globalObjects: {
     tweets: {
       "1658486856265392132": {
